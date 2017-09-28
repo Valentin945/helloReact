@@ -24,20 +24,32 @@ class App extends React.Component {
   constructor(props)
   {
     super(props);
+    this.handleFilter = this.handleFilter.bind(this);
     this.state = {
       filterText: '',
       inStockOnly: false,
       products: PRODUCTS
     };
   }
+  
+  handleFilter(filterInput)
+  {
+    this.setState(filterInput);
+  }
+
   render() {
     return (
       <div>
         <Filters 
           filterText={this.state.filterText}
           inStockOnly={this.state.inStockOnly}
+          onFilter={this.handleFilter}
         />
-        <ProducTable products={PRODUCTS}/>
+        <ProducTable 
+          products={PRODUCTS}
+          filterText={this.state.filterText}
+          inStockOnly={this.state.inStockOnly}
+        />
         <ProductForm />
       </div>
     );
