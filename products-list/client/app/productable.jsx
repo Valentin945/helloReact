@@ -8,13 +8,14 @@ class ProducTable extends React.Component {
     super(props);
 
     this.sortByColumnAndDirection = this.sortByColumnAndDirection.bind(this);
+    this.handleDestroy = this.handleDestroy.bind(this);
 
     this.state = {
       sort: {
         column: 'price',
         direction: 'desc'
       }
-    };;
+    };
   }
   
   sortByColumnAndDirection(objectA, objectB)
@@ -40,6 +41,11 @@ class ProducTable extends React.Component {
     return;
   }
 
+  handleDestroy(elmtID)
+  {
+    this.props.onDestroy(elmtID);
+  }
+
   sortProducts() {
     let productsAsArray = Object.keys(this.props.products).map((pid) => this.props.products[pid]);
     return productsAsArray.sort(this.sortByColumnAndDirection);
@@ -51,7 +57,7 @@ class ProducTable extends React.Component {
         return; 
       }
       rows.push( 
-        <ProductRow product={product} key={product.id} />
+        <ProductRow product={product} key={product.id} toDestroy={this.handleDestroy} />
       );
     });
     return (
