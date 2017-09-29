@@ -9,6 +9,7 @@ class ProducTable extends React.Component {
 
     this.sortByColumnAndDirection = this.sortByColumnAndDirection.bind(this);
     this.handleDestroy = this.handleDestroy.bind(this);
+    this.handlingChange = this.handlingChange.bind(this);
 
     this.state = {
       sort: {
@@ -17,7 +18,17 @@ class ProducTable extends React.Component {
       }
     };
   }
-  
+
+  handlingChange(ssort)
+  {
+    this.setState((prevState) => 
+    {
+      let sort = prevState.sort;
+      sort.direction = ssort.direction;
+      return {sort};
+    });
+  }
+
   sortByColumnAndDirection(objectA, objectB)
   {
     let isDesc = this.state.sort.direction === 'desc'? 1:-1;
@@ -66,10 +77,12 @@ class ProducTable extends React.Component {
           <tr>
             <SortableColumnHeader 
               currentSort={this.state.sort}
+              toChange={this.handlingChange}
               column="name"
               />
             <SortableColumnHeader 
               currentSort={this.state.sort}
+              toChange={this.handlingChange}
               column="price"
             />
           </tr>
