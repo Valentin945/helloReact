@@ -6,6 +6,12 @@ class ProductRow extends React.Component {
   {
     super(props);
     this.onDel = this.onDel.bind(this);
+    this.onSet = this.onSet.bind(this);
+  }
+
+  onSet()
+  {
+    this.props.toEdit(this.props.product.id);
   }
 
   onDel()
@@ -26,6 +32,9 @@ class ProductRow extends React.Component {
         </td>
         <td>
           <button onClick={this.onDel}>x</button>
+        </td>
+        <td>
+          <button onClick={this.onSet} className={'SettingButton'}>Edit</button>
         </td>
       </tr>
     );

@@ -10,6 +10,7 @@ class ProducTable extends React.Component {
     this.sortByColumnAndDirection = this.sortByColumnAndDirection.bind(this);
     this.handleDestroy = this.handleDestroy.bind(this);
     this.handlingChange = this.handlingChange.bind(this);
+    this.handlingEdit = this.handlingEdit.bind(this);
 
     this.state = {
       sort: {
@@ -20,9 +21,14 @@ class ProducTable extends React.Component {
     };
   }
 
+  handlingEdit(id)
+  {
+    this.props.toEdit(id);
+  }
+
   handlingChange(ssort)
   {
-    this.setState((prevState) => 
+    this.setState((prevState) =>
     {
       let sort = prevState.sort;
       sort.direction = ssort.direction;
@@ -66,22 +72,28 @@ class ProducTable extends React.Component {
     let rows = [];
     this.sortProducts().forEach((product) => {
       if (product.name.indexOf(this.props.filterText) === -1 || (!product.stocked && this.props.inStockOnly)) {
-        return; 
+        return;
       }
-      rows.push( 
-        <ProductRow product={product} key={product.id} toDestroy={this.handleDestroy} />
+      rows.push(
+        <ProductRow
+         product={product}
+         key={product.id}
+         toDestroy={this.handleDestroy}
+         toEdit={this.handlingEdit}
+         toChange={this.handlingChange}
+        />
       );
     });
     return (
       <table>
         <thead>
           <tr>
-            <SortableColumnHeader 
+            <SortableColumnHeader
               currentSort={this.state.sort}
               toChange={this.handlingChange}
               column="name"
               />
-            <SortableColumnHeader 
+            <SortableColumnHeader
               currentSort={this.state.sort}
               toChange={this.handlingChange}
               column="price"

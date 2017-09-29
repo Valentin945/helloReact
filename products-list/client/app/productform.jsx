@@ -14,7 +14,8 @@ class ProductForm extends React.Component
       this.state = {
         product: Object.assign({}, RESET_VALUES),
         errors: {},
-        test : ''
+        test : '',
+        subName: 'save'
       };
     }
 
@@ -44,6 +45,25 @@ class ProductForm extends React.Component
 
       return empty;
     }
+
+    componentWillReceiveProps(nextProps)
+    {
+      if (nextProps.currentProduct.edit === false)
+      {
+          return;
+      }
+
+      this.setState({subName: 'edit'});
+
+      this.setState((prevState) =>
+      {
+        let product = nextProps.currentProduct.product;
+        return {product};
+      });
+
+    }
+
+
     handleChange(e) {
       let target = e.target;
       let value = target.type === 'checkbox'? target.checked: target.value;
@@ -61,8 +81,14 @@ class ProductForm extends React.Component
         e.preventDefault();
         return;
       }
-      this.props.onSave(this.state.product);
-
+      if (this.state.subName === 'edit')
+      {
+        this.props.toEdit(this.state.product.id);
+      }
+      else
+      {
+        this.props.onSave(this.state.product);
+      }
       e.preventDefault();
 
     }
@@ -103,6 +129,7 @@ class ProductForm extends React.Component
              name="price"
              onChange={this.handleChange}
              category="price"
+             value={this.state.product.price}
             />
           </label>
         </p>
@@ -119,7 +146,7 @@ class ProductForm extends React.Component
         </p>
         <input
          type="submit"
-         value="Save"
+         value={this.state.subName}
          onClick={this.handleSave}
         />
       </form>
