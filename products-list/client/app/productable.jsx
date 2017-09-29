@@ -15,7 +15,8 @@ class ProducTable extends React.Component {
       sort: {
         column: 'price',
         direction: 'desc'
-      }
+      },
+      test: ''
     };
   }
 

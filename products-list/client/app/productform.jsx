@@ -3,18 +3,47 @@ import React from 'react'
 const RESET_VALUES = {id: '', category: '', price: '', stocked: false, name:''};
 
 
-class ProductForm extends React.Component {
+class ProductForm extends React.Component
+{
     constructor(props)
     {
       super(props);
       this.handleSave = this.handleSave.bind(this);
       this.handleChange = this.handleChange.bind(this);
+      this.isEmpty = this.isEmpty.bind(this);
       this.state = {
         product: Object.assign({}, RESET_VALUES),
-        error: {}
+        errors: {},
+        test : ''
       };
     }
 
+    isEmpty()
+    {
+      let empty = false;
+      let product = this.state.product;
+      let errors = {};
+      for (var id in product)
+      {
+        if (id === 'stocked' || id === 'id' || id ==='name')
+        {
+          continue;
+        }
+        if (product[id] === '')
+        {
+          console.log(id)
+          empty = true;
+          var nop = id;
+          errors[id] = "This field shouldn't be empty " + product[id] ;
+        }
+      }
+      this.setState((prevState) =>
+      {
+        return {errors};
+      });
+
+      return empty;
+    }
     handleChange(e) {
       let target = e.target;
       let value = target.type === 'checkbox'? target.checked: target.value;
@@ -27,12 +56,13 @@ class ProductForm extends React.Component {
     }
 
     handleSave(e) {
+      if (this.isEmpty())
+      {
+        e.preventDefault();
+        return;
+      }
       this.props.onSave(this.state.product);
 
-      this.setState({
-        product: Object.assign({}, RESET_VALUES),
-        errors: {}
-      });
       e.preventDefault();
 
     }
