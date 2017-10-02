@@ -7,6 +7,9 @@ import React from 'react'
 import Filters from './filters.jsx'
 import ProducTable from './productable.jsx'
 import ProductForm from './productform.jsx'
+import Header from './header/header.jsx'
+
+import {BrowserRouter, Route} from 'react-router-dom'
 
 var PRODUCTS = {
 
@@ -19,6 +22,8 @@ var PRODUCTS = {
   '6': {id: 6, category: 'Furniture', price: '$100', stocked: true, name: 'Bean Bag'}
 
 };
+
+
 
 class App extends React.Component {
   constructor(props)
@@ -75,8 +80,11 @@ class App extends React.Component {
     this.setState(filterInput);
   }
 
+
+
   render() {
     return (
+
       <div>
         <Filters
           filterText={this.state.filterText}

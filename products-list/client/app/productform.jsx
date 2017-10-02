@@ -48,6 +48,7 @@ class ProductForm extends React.Component
 
     componentWillReceiveProps(nextProps)
     {
+	  console.log(nextProps);
       if (nextProps.currentProduct.edit === false)
       {
           return;
