@@ -68,6 +68,7 @@ class ProducTable extends React.Component {
     let productsAsArray = Object.keys(this.props.products).map((pid) => this.props.products[pid]);
     return productsAsArray.sort(this.sortByColumnAndDirection);
   }
+
   render () {
     let rows = [];
     this.sortProducts().forEach((product) => {

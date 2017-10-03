@@ -24,6 +24,8 @@ var PRODUCTS = {
 };
 
 
+var Command = [];
+
 
 class App extends React.Component {
   constructor(props)
@@ -42,6 +44,11 @@ class App extends React.Component {
         product: {}
       }
     };
+  }
+
+  handlingCommand(product)
+  {
+    Command.push(product);
   }
 
   handlingEdit(id)

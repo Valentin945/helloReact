@@ -9,12 +9,23 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './app/App.jsx';
 import Header from './app/header/header.jsx'
-import {Redirect, BrowserRouter, Route, Switch} from 'react-router-dom'
+import { HashRouter as Router,
+         Route,
+         Switch} from 'react-router-dom'
+import Footer from './app/footer.jsx'
 
 
 
 class PrimaryLayout extends React.Component
 {
+  constructor(props)
+  {
+    super(props);
+    this.state = {
+      command: []
+    };
+  }
+
 
   render() {
     return (
@@ -22,19 +33,22 @@ class PrimaryLayout extends React.Component
         <Header />
         <main>
           <Switch>
-            <Route path="/" component={App}/>
+            <Route exact path="/" component={App}/>
             <Route path="/plo" component={App}/>
+            <Route path="/basket" component={App}/>
           </Switch>
         </main>
+        <hr />
+        <Footer />
       </div>
     );
 
   }
 }
 const Start = () => (
-  <BrowserRouter>
+  <Router>
     <PrimaryLayout />
-  </BrowserRouter>
+  </Router>
 )
 
 
