@@ -8,12 +8,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './app/App.jsx';
-import Header from './app/header/header.jsx'
+import Header from './app/header/header.jsx';
 import { HashRouter as Router,
          Route,
-         Switch} from 'react-router-dom'
-import Footer from './app/footer.jsx'
-
+         Switch} from 'react-router-dom';
+import Footer from './app/footer.jsx';
+import BasketComponent from './app/basketComponent.jsx';
 
 
 class PrimaryLayout extends React.Component
@@ -33,7 +33,7 @@ class PrimaryLayout extends React.Component
       let command = prevState.command;
       command.push(product);
       return {command};
-    });
+    });а
     console.log(this.state.command);
   }
 
@@ -49,7 +49,7 @@ class PrimaryLayout extends React.Component
           </Switch>
         </main>
         <hr />
-        <Footer />
+        <Route exact path="/" component={Footer}/>
       </div>
     );
 
