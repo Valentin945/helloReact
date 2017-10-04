@@ -21,11 +21,21 @@ class PrimaryLayout extends React.Component
   constructor(props)
   {
     super(props);
+    this.handleCmd = this.handleCmd.bind(this);
     this.state = {
       command: []
     };
   }
 
+  handleCmd(product)
+  {
+    this.setState(prevState => {
+      let command = prevState.command;
+      command.push(product);
+      return {command};
+    });
+    console.log(this.state.command);
+  }
 
   render() {
     return (
@@ -33,7 +43,7 @@ class PrimaryLayout extends React.Component
         <Header />
         <main>
           <Switch>
-            <Route exact path="/" component={App}/>
+            <Route exact path="/" component={() => <App addCommand={this.handleCmd}/>}/>
             <Route path="/plo" component={App}/>
             <Route path="/basket" component={App}/>
           </Switch>

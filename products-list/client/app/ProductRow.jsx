@@ -26,7 +26,7 @@ class ProductRow extends React.Component {
         quantite: 1,
         lot: 1,
         name: this.props.product.name,
-        price: this.props.product.name
+        price: this.props.product.price
       },
       lot,
       count: 1
@@ -35,7 +35,7 @@ class ProductRow extends React.Component {
 
   inBasket()
   {
-
+    this.props.toCommand(this.state.commander);
   }
 
   onSet()

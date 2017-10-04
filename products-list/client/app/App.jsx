@@ -50,7 +50,7 @@ class App extends React.Component {
 
   handlingCommand(product)
   {
-    Command.push(product);
+    this.props.addCommand(product);
   }
 
   handlingEdit(id)
@@ -103,6 +103,7 @@ class App extends React.Component {
         <ProducTable
           products={PRODUCTS}
           toEdit={this.handlingEdit}
+          onCommand={this.handlingCommand}
           onDestroy={this.handleDestroy}
           filterText={this.state.filterText}
           inStockOnly={this.state.inStockOnly}
