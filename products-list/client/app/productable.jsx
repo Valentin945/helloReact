@@ -11,6 +11,7 @@ class ProducTable extends React.Component {
     this.handleDestroy = this.handleDestroy.bind(this);
     this.handlingChange = this.handlingChange.bind(this);
     this.handlingEdit = this.handlingEdit.bind(this);
+    this.handleCommand = this.handleCommand.bind(this);
 
     this.state = {
       sort: {
@@ -19,6 +20,11 @@ class ProducTable extends React.Component {
       },
       test: ''
     };
+  }
+
+  handleCommand(command)
+  {
+    this.props.onCommand(command);
   }
 
   handlingEdit(id)
@@ -77,6 +83,7 @@ class ProducTable extends React.Component {
       }
       rows.push(
         <ProductRow
+         toCommand={this.handleCommand}
          product={product}
          key={product.id}
          toDestroy={this.handleDestroy}

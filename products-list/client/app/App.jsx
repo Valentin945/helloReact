@@ -35,6 +35,8 @@ class App extends React.Component {
     this.handleFilter = this.handleFilter.bind(this);
     this.handleDestroy = this.handleDestroy.bind(this);
     this.handlingEdit = this.handlingEdit.bind(this);
+    this.handlingCommand = this.handlingCommand.bind(this);
+
     this.state = {
       filterText: '',
       inStockOnly: false,
