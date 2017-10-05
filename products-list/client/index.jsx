@@ -33,7 +33,7 @@ class PrimaryLayout extends React.Component
       let command = prevState.command;
       command.push(product);
       return {command};
-    });а
+    });
     console.log(this.state.command);
   }
 
@@ -44,8 +44,8 @@ class PrimaryLayout extends React.Component
         <main>
           <Switch>
             <Route exact path="/" component={() => <App addCommand={this.handleCmd}/>}/>
-            <Route path="/plo" component={App}/>
-            <Route path="/basket" component={App}/>
+            <Route path="/payment" component={() => <BasketComponent products={this.state.command}/>}/>
+            <Route path="/basket" component={() => <App addCommand={this.handleCmd}/>}/>
           </Switch>
         </main>
         <hr />

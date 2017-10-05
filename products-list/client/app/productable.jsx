@@ -49,7 +49,7 @@ class ProducTable extends React.Component {
 
     if (this.state.sort.column === 'price')
     {
-      [a, b] = [a, b].map((value) => parseFloat(value.replace(/[^\d.]/g, ''), ''), 10);
+      [a, b] = [a, b].map((value) => parseFloat(value.replace(/[^\d\.]/g, ''),  10));
     }
 
     if (a > b)

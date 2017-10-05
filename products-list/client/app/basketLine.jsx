@@ -5,6 +5,12 @@ class BasketLine extends React.Component
     constructor(props)
     {
         super(props);
+        this.calculator = this.calculator.bind(this);
+    }
+
+    calculator()
+    {
+
     }
 
     render()
@@ -15,9 +21,10 @@ class BasketLine extends React.Component
                 <td>{this.props.product.price}</td>
                 <td>{this.props.product.quantite}</td>
                 <td>{this.props.product.lot}</td>
-                <td> <h1 style='backgroundColor: Black color: white;'> Coming soon </h1></td>
+                <td> <h1> Coming soon </h1></td>
+                <td>{this.calculator}</td>
             </tr>
-
+            
         );
     }
 

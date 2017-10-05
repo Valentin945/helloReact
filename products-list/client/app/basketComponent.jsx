@@ -10,13 +10,16 @@ class BasketComponent extends React.Component
 
     render()
     {
+        let count = 0;
         let rows = [];
         this.props.products.forEach(product => {
             rows.push(
                 <BasketLine
+                    key={count}
                     product = {product}
                 />
             );
+            count++;
         });
 
         return(
@@ -26,9 +29,11 @@ class BasketComponent extends React.Component
                     <thead>
                         <tr>
                             <th>Your name </th>
-                            <th>Your Price </th>
+                            <th>Price for one </th>
                             <th>Your quantity </th>
                             <th>Your lot </th>
+                            <th>Product</th>
+                            <th>Price for the quantity</th>
                         </tr>
                     </thead>
                     <tbody>

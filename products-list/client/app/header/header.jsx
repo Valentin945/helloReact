@@ -15,7 +15,7 @@ class Header extends React.Component
           </div>
           <div id="selectoi">
             <nav>
-                <NavLink to="/plo" activeClassName="active"> est </NavLink>
+                <NavLink to="/" activeClassName="active"> est </NavLink>
             </nav>
           </div>
         </div>
