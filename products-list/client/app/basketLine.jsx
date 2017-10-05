@@ -10,7 +10,10 @@ class BasketLine extends React.Component
 
     calculator()
     {
-
+        let tmp2 = parseFloat(this.props.product.quantite, 10);
+        let tmp = parseFloat(this.props.product.price.replace(/[^\d.]/g, ''), 10);
+        console.log(tmp);
+        return tmp * tmp2;
     }
 
     render()
@@ -22,7 +25,7 @@ class BasketLine extends React.Component
                 <td>{this.props.product.quantite}</td>
                 <td>{this.props.product.lot}</td>
                 <td> <h1> Coming soon </h1></td>
-                <td>{this.calculator}</td>
+                <td>{this.calculator()}</td>
             </tr>
             
         );

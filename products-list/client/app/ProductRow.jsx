@@ -10,6 +10,8 @@ class ProductRow extends React.Component {
     this.onSet = this.onSet.bind(this);
     this.onHow = this.onHow.bind(this);
     this.inBasket = this.inBasket.bind(this);
+    this.onLot = this.onLot.bind(this);
+
     const items = [
       {
         value: 0,
@@ -24,7 +26,7 @@ class ProductRow extends React.Component {
     this.state = {
       commander: {
         quantite: 1,
-        lot: 1,
+        lot: '1',
         name: this.props.product.name,
         price: this.props.product.price
       },
@@ -32,6 +34,22 @@ class ProductRow extends React.Component {
       count: 1
     };
   }
+
+  onLot(event)
+  {
+    let {options, selectedIndex} =  event.target;
+    console.log(options, selectedIndex)
+    console.log(this.state.commander);
+
+    //console.log(lot);
+    //this.setState({commander: {lot}});
+    this.setState(prevState => {
+      let commander = prevState.commander;
+      commander.lot =  options[selectedIndex].innerHTML;
+      return {commander};
+    }); 
+     
+      }
 
   inBasket()
   {
@@ -50,7 +68,6 @@ class ProductRow extends React.Component {
 
   handleSelect(val)
   {
-    console.log(val)
     switch(val)
     {
       case 1:
@@ -62,7 +79,6 @@ class ProductRow extends React.Component {
         });
         break;
       case 5:
-        console.log('test');
         this.setState(prevState => 
         {
           let lot = prevState.lot;
@@ -78,17 +94,13 @@ class ProductRow extends React.Component {
         });
         break;
     }
-    console.log(this.state.lot)
+
   }
 
   onHow(select)
   {
-    console.log(select);
-  
- 
-    const { value, options, selectedIndex } = select.target
-    console.log(options[selectedIndex].innerHTML)
-
+    const { value, options, selectedIndex } = select.target;
+    console.log(options)
     switch(options[selectedIndex].innerHTML)
     {
       case '1':
@@ -106,16 +118,17 @@ class ProductRow extends React.Component {
       default:
         break;
     }
+
     this.setState(prevState => {
         let count = prevState.count + 1;
         return {count};
     });
+
     this.setState(prevState => {
         let commander = prevState.commander;
         commander.quantite = options[selectedIndex].innerHTML;
         return {commander};
     });
-    console.log(this.state.commander);
   }
 
   render() {
@@ -147,7 +160,7 @@ class ProductRow extends React.Component {
         </td>
         <td>
           Lot
-          <select>
+          <select onChange={this.onLot}>
             {this.state.lot}
           </select>
         </td>
