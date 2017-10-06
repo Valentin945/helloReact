@@ -77,6 +77,7 @@ class ProductForm extends React.Component
     }
 
     handleSave(e) {
+      console.log(e.target);
       if (this.isEmpty())
       {
         e.preventDefault();
@@ -96,7 +97,7 @@ class ProductForm extends React.Component
 
   render() {
     return (
-      <form>
+      <form onSubmit={this.handleSave}>
         <h3> Enter a new product </h3>
         <p>
           <label>
@@ -148,7 +149,7 @@ class ProductForm extends React.Component
         <input
          type="submit"
          value={this.state.subName}
-         onClick={this.handleSave}
+   
         />
       </form>
     );
