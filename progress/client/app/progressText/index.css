@@ -1,0 +1,16 @@
+.ProgressText
+{
+    position: relative;
+    display: inline-block;
+    color: rgba(128, 128, 128, 0.25);
+}
+
+.Progress
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    color: blue;
+    overflow: hidden;
+}
