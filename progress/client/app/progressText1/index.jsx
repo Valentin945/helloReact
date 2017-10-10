@@ -3,7 +3,7 @@ import './index.css';
 import styled from 'style-component';
 import {Motion, spring} from 'react-motion'
 
-class ProgressText extends React.Component
+class ProgressText2 extends React.Component
 {
   constructor(props)
   {
@@ -19,7 +19,7 @@ class ProgressText extends React.Component
   {
       this.intervalID = setInterval(
         () => this.tictoc(),
-        1000
+        1500
       );
   }
 
@@ -42,7 +42,7 @@ class ProgressText extends React.Component
   render()
   {
       const test = {
-        overflow: 'hidden',
+         overflow: 'hidden',
         whiteSpace: 'nowrap'
       };
 
@@ -54,10 +54,10 @@ class ProgressText extends React.Component
                     defaultStyle={{width: 0}}
                     style={{width: spring(this.state.val, {stiffness: 34, damping: 11})}}>               
                 {
-                    (state) =>
+                    ({width}) =>
                     <h1 style={{
                         ...test,
-                         width: state.width
+                         width: `${width}%`
                          }}> 
                         {this.props.text}
                     </h1>
@@ -69,4 +69,4 @@ class ProgressText extends React.Component
   }
 }
 
-export default ProgressText;
+export default ProgressText2;
