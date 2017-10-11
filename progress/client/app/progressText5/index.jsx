@@ -38,8 +38,7 @@ class ProgressText5 extends React.Component
     {
         let tmp = 0;
         let ret = prevState;
-        console.log(ret);
-       
+        
         if (prevState.count == 1 || prevState.count === 4 )
         {
             ret.timing = 600;
