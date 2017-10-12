@@ -13,9 +13,9 @@ class App extends React.Component {
         <Menu 
            Circle={{MAIN_BUTTON_DIAM: '90',
                     CHILD_BUTTON_DIAM: '48',
-                    CHILD_NUMBER: 5,
-                    SEPARATION_ANGLE: '40',
-                    FLY_OUT_RADIUS: '130'}}
+                    CHILD_NUMBER: 4,
+                    SEPARATION_ANGLE: '20',
+                    FLY_OUT_RADIUS: '180'}}
         />
       </div>  
     );

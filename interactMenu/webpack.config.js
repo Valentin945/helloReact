@@ -12,8 +12,12 @@ var config = {
         test : /\.jsx?/,
         include : APP_DIR,
         loader: 'babel-loader'
+      },
+      {
+        test: /\.css$/,
+        loader: 'style-loader!css-loader'
       }
-    ]
+    ],
   },
   entry: APP_DIR + '/index.jsx',
   output: {
