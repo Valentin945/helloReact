@@ -42,7 +42,9 @@ class ProgressText6 extends React.Component
 
 
       this.state = {
-        val: 0,
+        val: this.width,
+        maxWidth: this.width,
+     
         color1: `${this.firstColor}`,
         color2: `${this.secondColor}`,
         color1Origin: `${this.firstColor}`,
@@ -72,7 +74,7 @@ class ProgressText6 extends React.Component
             ret.color2 === prevState.color1Origin ? ret.color2 = prevState.color2Origin : ret.color2 = prevState.color1Origin;
             
             console.log(ret.color2)
-            ret.val = 100;
+            ret.val = prevState.maxWidth;
             return ret;
         }
         else
@@ -105,7 +107,7 @@ class ProgressText6 extends React.Component
             <div className="Progress">
                 <Motion 
                     defaultStyle={{width: 0}}
-                    style={{width: spring(this.state.val, {stiffness: 34, damping: 11})}}>               
+                    style={{width: spring(this.state.val, {stiffness: this.stiffness, damping: this.damping})}}>               
                 {
                     ({width}) =>
                     <h1 style={{
