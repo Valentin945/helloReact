@@ -10,7 +10,8 @@ class progressBar1 extends React.Component
         this.tictoc = this.tictoc.bind(this);
         this.state = {
             val: 100,
-            color: 'white'
+            color1: 'white',
+            color2: 'black'
         }
     }
 
@@ -18,7 +19,7 @@ class progressBar1 extends React.Component
     {
         this.intervalID = setInterval(
             () => this.tictoc(),
-            1500
+            1000
           );
       }
 
@@ -27,8 +28,17 @@ class progressBar1 extends React.Component
     {
         this.setState(prevState =>
         {
-            console.log(prevState)
-            prevState.color === 'white'? prevState.color = 'black': prevState.color = 'white';
+            let {val} = prevState;
+            if (val === 0)
+            {
+                prevState.color2 === 'white'? prevState.color2 = 'black': prevState.color2 = 'white';
+                prevState.val = 100;
+            }
+            else
+            {
+                prevState.color1 = prevState.color2
+                prevState.val = 0;
+            }
             //prevState.val === 100? prevState.val = 0: prevState.val = 100;
             return prevState;
         });
@@ -42,19 +52,21 @@ class progressBar1 extends React.Component
     render()
     {
         let test = Object.assign({}, styler.bar);
-        console.log(test);
+    
      return(
         <div >
             <Motion 
-             defaultStyle={{width: this.state=== 0? 0:0}}
-             style={{width: spring(this.state.val, {stiffness: 30, damping: 11})}}>               
+             defaultStyle={{width: 0}}
+             style={{width: spring(this.state.val, {stiffness: 40, damping: 11})}}>               
              {
                  ({width}) =>
-                <div style={{
-                       ...styler.bar,
-                       //backgroundColor: this.state.color,
-                       width: `${width}%`
-                     }}>
+                 <div style={{backgroundColor: this.state.color1}}>
+                    <div style={{
+                        ...styler.bar,
+                        backgroundColor: this.state.color2,
+                        width: `${width}%`
+                        }}>
+                    </div>
                 </div>
              }
             </Motion>

@@ -1,7 +1,7 @@
 export default
 {
     bar: {
-    width: '0%',
+    width: '0',
     height: '20px',
     backgroundColor: 'black',
     textAlign: 'center',
