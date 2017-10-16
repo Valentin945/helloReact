@@ -75,7 +75,7 @@ class ProgressText4 extends React.Component
                     ({width}) =>
                     <h1 style={{
                         ...test,
-                         color: this.state.color2,
+                         colQor: this.state.color2,
                          width: `${width}%`
                          }}>
                             {this.props.text}

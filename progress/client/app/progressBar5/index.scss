@@ -1,0 +1,17 @@
+$animation-length: 250;
+
+
+:root
+{
+    --color: 'blue';
+}
+
+:export
+{
+    animationTest: $animation-length;
+
+}
+
+.example
+{    margin: var(--cop);
+}
