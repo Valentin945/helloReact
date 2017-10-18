@@ -45,7 +45,7 @@ class App extends React.Component {
         <ProgressBar2/>
         <hr />
         <ProgressBar3 stiffness={100} damping={11}/> */}
-        <ProgressBar4 text='Val'/>
+        <ProgressBar4 size='100%' backGroundColor='White' foreGroundColor='#F37324' timeAnim='20s'/>
 
         <hr />
         <hr />

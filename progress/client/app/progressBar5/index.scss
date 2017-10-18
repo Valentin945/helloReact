@@ -3,7 +3,7 @@ $animation-length: 250;
 
 :root
 {
-    --color: 'blue';
+    --time:  0;
 }
 
 :export
@@ -13,5 +13,32 @@ $animation-length: 250;
 }
 
 .example
-{    margin: var(--cop);
+{    margin: 10;
+
+    >span{
+        font:26px/1.5 Monospace;
+        animation: flip 2s infinite;
+        display: inline-block;
+        transform-origin: 50% 50% -10px;
+        transform-style: preserve-3d;
+        @for $i from 1 to str-length(--time) {
+            &:nth-child(#{$i}){
+                animation-delay: $i/10+s;
+                @if (($i % 2) == 0){
+                    color: blue;
+                }
+                @else
+                {
+                    color: orange;
+                }
+            }
+        }
+    }
+}
+
+@keyframes flip
+{
+    to {
+        transform: rotate(360deg);
+    }
 }

@@ -20,10 +20,11 @@ class progressBar5 extends React.Component
     {
      //   http://vanseodesign.com/css/custom-properties-and-javascript/
         var styles = getComputedStyle(document.documentElement);
-        var colorValue = styles.getPropertyValue('--color');
+        var colorValue = styles.getPropertyValue('--time');
         console.log(colorValue)
-        document.documentElement.style.setProperty('--color', '10')
-        colorValue = styles.getPropertyValue('--color');
+        document.documentElement.style.setProperty('--time', this.props.text)
+        
+        colorValue = styles.getPropertyValue('--time');
         console.log(colorValue)
     }
 
