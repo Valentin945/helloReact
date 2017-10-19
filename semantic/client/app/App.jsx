@@ -6,13 +6,14 @@
 import React from 'react'
 import {Button} from 'semantic-ui-react'
 import Head from './head.jsx'
+import Body from './body.jsx'
 
 class App extends React.Component {
   render() {
     return (
       <div>
           <Head left={['sok', 'home', 'val']}/>
-
+          <Body />
       </div>
     
     );

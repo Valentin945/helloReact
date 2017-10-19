@@ -8,5 +8,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './app/App.jsx';
+import {HashRouter as Router} from 'react-router-dom'
 
-ReactDOM.render(<App />, document.getElementById('app'));
+
+const Launch = () => (
+  <Router>
+    <App />
+  </Router>
+);
+
+
+ReactDOM.render(<Launch />, document.getElementById('app'));
