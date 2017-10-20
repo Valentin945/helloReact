@@ -8,3 +8,8 @@
     color: black;
     padding-left: 7px;
 }
+
+.visible
+{
+   display: none!important;
+}
