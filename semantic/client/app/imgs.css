@@ -9,7 +9,17 @@
     padding-left: 7px;
 }
 
-.visible
+i.icon.visible_maybe
 {
-   display: none!important;
+   display: none;
+}
+
+#foo.ui.form i.icon.info_error{
+display:none;
+}
+
+#foo
+{
+    margin-left: 20px;
+    margin-right: 20px;
 }

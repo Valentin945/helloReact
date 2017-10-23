@@ -13,7 +13,7 @@ import {HashRouter as Router} from 'react-router-dom'
 
 const Launch = () => (
   <Router>
-    <App />
+    <App/>
   </Router>
 );
 

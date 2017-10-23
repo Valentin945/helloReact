@@ -1,5 +1,5 @@
 import React from 'react'
-import {Grid, Menu, Container, List, Input, Button, Icon, Image} from 'semantic-ui-react'
+import {Grid, Menu, Container, List, Input, Button, Icon, Image, Select} from 'semantic-ui-react'
 import './imgs.css'
 
 class Head extends React.Component

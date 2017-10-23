@@ -1,7 +1,9 @@
 import React from 'react'
 import {HashRouter as Router,
         Route,
-        Switch} from 'react-router-dom'
+        Switch,
+        Link,
+        Redirect} from 'react-router-dom'
 import {Grid} from 'semantic-ui-react'
 
 
@@ -14,10 +16,23 @@ class Body extends React.Component
     constructor(props)
     {
         super(props)
+        this.getData = this.getData.bind(this);
         this.state = 
         {
-            index: 0
+            index: 0,
+            data: {}
         }
+    }
+
+    getData(data)
+    {
+        debugger;
+        let {index} = this.state
+        index++;
+        this.setState({data: data});
+        this.setState({index: index++});
+        
+        this.props.history.push('/secondStep')
     }
 
     render()
@@ -38,7 +53,7 @@ class Body extends React.Component
                                     <Steps steps={[{icon: 'address card outline', title: 'ID'},
                                                 {icon: 'edit', title: 'Motivation'},
                                                 {icon: 'info circle', title: 'Validate'}
-                                    ]}
+                                                ]}
                                             index={this.state.index}/>
                                 )} />
                         </Grid.Column>
@@ -46,7 +61,9 @@ class Body extends React.Component
                     <Grid.Row
                         centered>      
                             <Switch>
-                                <Route exact path='/' component={() => (<FirstForm />)}/>
+                                <Route exact path='/' component={() => (<FirstForm 
+                                                                            getData={this.getData}/>)}/>
+                                <Route path='/secondStep' component={() => <div> </div>}/>
                             </Switch>
                     </Grid.Row>
                     
