@@ -10,10 +10,12 @@ import Body from './body.jsx'
 
 class App extends React.Component {
   render() {
+
+    console.log(this.props)
     return (
       <div>
           <Head left={['sok', 'home', 'val']}/>
-          <Body />
+          <Body history={this.props.history} />
       </div>
     
     );
