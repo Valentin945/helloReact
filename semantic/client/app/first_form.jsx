@@ -10,7 +10,7 @@ import {
             Dropdown
        } from 'semantic-ui-react'
 import './imgs.css'
-
+import { withRouter } from 'react-router-dom';
 
 const RESET_VALUES = {firstName: '', lastName: '', gender: '', mailAdress: '', domaine: '', phoneNumber: '', familySituation: '', agree: false}
 
@@ -266,6 +266,7 @@ class FirstForm extends React.Component
         {
             
             this.props.getData(this.state.obj);
+            this.props.history.push('secondstep')
         }
 
         e.preventDefault();
@@ -330,4 +331,4 @@ class FirstForm extends React.Component
     }
 }
 
-export default FirstForm;
+export default withRouter(FirstForm);

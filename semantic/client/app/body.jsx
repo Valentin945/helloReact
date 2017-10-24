@@ -3,10 +3,12 @@ import {HashRouter as Router,
         Route,
         Switch,
         Link,
-        Redirect} from 'react-router-dom'
+        Redirect,
+        withRouter} from 'react-router-dom'
 import {Grid} from 'semantic-ui-react'
+import createHistory from 'history/createBrowserHistory'
 
-
+import SecondStep from './secondStep.jsx'
 import FirstForm from './first_form.jsx'
 import Steps from './step.jsx'
 
@@ -26,13 +28,13 @@ class Body extends React.Component
 
     getData(data)
     {
-        debugger;
+        
+        
         let {index} = this.state
         index++;
         this.setState({data: data});
         this.setState({index: index++});
         
-        this.props.history.push('/secondStep')
     }
 
     render()
@@ -59,11 +61,12 @@ class Body extends React.Component
                         </Grid.Column>
                     </Grid.Row>
                     <Grid.Row
-                        centered>      
+                            centered
+                        >      
                             <Switch>
                                 <Route exact path='/' component={() => (<FirstForm 
                                                                             getData={this.getData}/>)}/>
-                                <Route path='/secondStep' component={() => <div> </div>}/>
+                                <Route path='/secondStep' component={() => <SecondStep/>}/>
                             </Switch>
                     </Grid.Row>
                     
@@ -77,4 +80,4 @@ class Body extends React.Component
 }
 
 
-export default Body;
+export default withRouter(Body);

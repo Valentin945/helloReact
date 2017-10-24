@@ -30,12 +30,16 @@ class Head extends React.Component
             <Grid>
                 <Grid.Row 
                     color='yellow'
+                    
+
+                    columns={16}
                     >
-                    <Grid.Column width={5}>
+                    <Grid.Column width={1}/>
+                    <Grid.Column  width={4}>
                         <Menu
                             color='yellow'
                             inverted
-                           
+                            fluid
                             size='large'
                             >
                             {rows}
@@ -49,7 +53,7 @@ class Head extends React.Component
                                 className='imgs'
                                  />
                     </Grid.Column>
-                    <Grid.Column width={6}>
+                    <Grid.Column width={5}>
                         <Menu 
                             color='yellow'
                             inverted>
