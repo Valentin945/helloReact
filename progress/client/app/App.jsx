@@ -17,7 +17,7 @@ import ProgressBar2 from './progressBar2/index.jsx'
 import ProgressBar3 from './progressBar3/index.jsx'
 import ProgressBar4 from './progressBar4/index.jsx'
 import ProgressBar5 from './progressBar5/index.jsx'
-
+import ProgressBar6 from './progressBar6/index.jsx'
 
 class App extends React.Component {
   render() {
@@ -50,7 +50,8 @@ class App extends React.Component {
         <hr />
         <hr />
         <ProgressBar5 text='valou'/>
-
+        <hr />
+        <ProgressBar6 />
       </div>
     );
   }
