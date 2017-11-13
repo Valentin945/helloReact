@@ -1,0 +1,23 @@
+.testWidth
+{
+    color: white;
+}
+
+.sidebar.inline.testWidth.menu
+{
+    transition: width 0.5s;
+}
+
+.sidebar.very.thin
+{
+    padding-left: -10px;
+}
+
+.ui.sidebar.icon.menu
+{
+    .item
+    {
+            min-width: 0em;
+    }
+}
+

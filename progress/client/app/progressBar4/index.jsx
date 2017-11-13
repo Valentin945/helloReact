@@ -61,7 +61,7 @@ class progressBar4 extends React.Component
            <div className="animation" style={{
                                                 backgroundColor: this.foreGroundColor,
                                                 animationDelay: this.timeDelay,
-                                                animationDuration: this.timeAnim
+                                                animationDuration: '10'
                                             }}>
             </div>
         </div>

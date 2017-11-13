@@ -1,0 +1,98 @@
+import React, {Component} from 'react'
+
+import {
+    Sidebar,
+    Menu,
+    Segment,
+    Icon,
+    Header,
+    Transition,
+    Dropdown
+} from 'semantic-ui-react'
+
+import windowSize from 'react-window-size'
+import './sideBar.scss'
+
+class SideBar5 extends Component
+{
+    constructor(props)
+    {
+        super(props);
+        this.state = 
+        {
+            sideWidth: 'very thin',
+            height: 0,
+            dropdownMenuVisible : ''
+        }
+        this.initiateRow = this.initiateRow.bind(this);
+        this.changeSizeItem = this.changeSizeItem.bind(this);
+    }
+
+    
+    changeSizeItem(element)
+    {
+        let {target} = element;
+        this.setState({sideWidth: 'thin'})
+        console.log(target.style)
+        
+    }
+
+    initiateRow()
+    {
+        const {sideWidth, dropdownMenuVisible} = this.state;
+
+            let count = 0;
+            let tab = [];
+            Object.keys(this.props.logos).map((pid) =>{
+                const {logos} = this.props;
+               
+                tab.push(
+                    <div key={count}> 
+                        <Dropdown open={dropdownMenuVisible === pid}  icon={<Icon size='big' name={pid}/>} style={{height: '60px'}} labeled floating className='link item'  onMouseEnter={() => {this.setState({dropdownMenuVisible: pid})}} onMouseLeave={() => {this.setState({dropdownMenuVisible: ''})}} >
+                            <Dropdown.Menu >
+                                <Dropdown.Item className='fluid' style={{height: '50px'}} >
+                                    Menu
+                                </Dropdown.Item>
+                            </Dropdown.Menu>
+                        </Dropdown>
+                    </div>
+                )
+                count++;
+            })
+            
+            return tab;
+
+    }
+
+    render()
+    {
+
+         const {sideWidth} = this.state;
+         const sideSize = this.props.windowHeight;
+         if (sideWidth === 'thin')
+         {
+             23
+         }
+         const row = this.initiateRow();
+         
+
+        return (
+            <div className='ui'>
+                <Sidebar.Pushable className='bottom attached' as={Segment} style={{height: `${sideSize}px`}}>
+                    <Sidebar as={Menu} visible className='inline testWidth ' animation='push' width={sideWidth} 
+                           vertical inverted>
+                        {row}            
+                    </Sidebar>
+                    <Sidebar.Pusher>
+                        <Segment basic>
+                            <Header as='h1'> Application Content </Header>
+                        </Segment>
+                    </Sidebar.Pusher>
+                </Sidebar.Pushable>
+            </div>
+        );
+    }
+
+}
+
+export default windowSize(SideBar5);

@@ -23,7 +23,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        {/* <hr />
+         <hr />
         <ProgressText1 text="WALLIX" />
         <hr />
         <ProgressText2 text="WALLIX" />
@@ -44,7 +44,7 @@ class App extends React.Component {
         <hr />
         <ProgressBar2/>
         <hr />
-        <ProgressBar3 stiffness={100} damping={11}/> */}
+        <ProgressBar3 stiffness={100} damping={11}/> 
         <ProgressBar4 size='100%' backGroundColor='White' foreGroundColor='#F37324' timeAnim='20s'/>
 
         <hr />

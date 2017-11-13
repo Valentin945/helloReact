@@ -1,0 +1,140 @@
+import React, {Component} from 'react'
+
+import {
+    Sidebar,
+    Menu,
+    Segment,
+    Icon,
+    Header,
+    Transition,
+    Dropdown
+} from 'semantic-ui-react'
+
+import windowSize from 'react-window-size'
+import './sideBar.scss'
+
+class SideBar5 extends Component
+{
+    constructor(props)
+    {
+        super(props);
+        this.state = 
+        {
+            sideWidth: 'very thin',
+            height: 0,
+            dropdownMenuVisible : ''
+        }
+        this.initiateRow = this.initiateRow.bind(this);
+        this.changeSizeItem = this.changeSizeItem.bind(this);
+        this.showRow = this.showRow.bind(this);
+    }
+
+    
+    changeSizeItem(element)
+    {
+        let {target} = element;
+        this.setState({sideWidth: 'thin'})
+        console.log(target.style)
+        
+    }
+
+    initiateRow()
+    {
+        const {sideWidth, dropdownMenuVisible} = this.state;
+
+            let count = 0;
+            let tab = [];
+            Object.keys(this.props.logos).map((pid) =>{
+                const {logos} = this.props;
+               
+                tab.push(
+                    <div key={count}> 
+                        <Dropdown open={dropdownMenuVisible === pid}  icon={<Icon size='big' name={pid}/>} style={{height: '60px'}} labeled floating className='link item'  onMouseEnter={() => {this.setState({dropdownMenuVisible: pid})}} onMouseLeave={() => {this.setState({dropdownMenuVisible: ''})}} >
+                            <Dropdown.Menu >
+                                <Dropdown.Item className='fluid' style={{height: '50px'}} >
+                                    Menu
+                                </Dropdown.Item>
+                            </Dropdown.Menu>
+                        </Dropdown>
+                    </div>
+                )
+                count++;
+            })
+            
+            return tab;
+
+    }
+
+    showRow()
+    {
+        const {dropdownMenuVisible, subMenuVisible} = this.state;
+        let tab = [];
+        let count = 0;
+        Object.keys(this.props.logos).map((pid) =>{
+            const {logos} = this.props;
+           
+            if (pid === subMenuVisible)
+            {
+                tab.push(
+                    <Menu.Item key={count}>
+                        <Menu.Header>
+                            {pid}
+                        </Menu.Header>
+                        <Menu.Menu>
+                            <Menu.Item> slkslkldk </Menu.Item>
+                        </Menu.Menu>
+                    </Menu.Item>
+                )
+            }
+            else
+            {
+                tab.push(
+                    <Menu.Item key={count}>
+                        <Menu.Header>
+                            {pid}
+                        </Menu.Header>
+                    </Menu.Item>
+                )
+            }
+            count++;
+        })
+
+        return tab;
+    }
+
+    render()
+    {
+
+         const {sideWidth} = this.state;
+         const sideSize = this.props.windowHeight;
+         let row =[];
+         if (sideWidth === 'very thin')
+         {
+            row = this.initiateRow();   
+         }
+         else
+         {
+            row = this.showRow();
+         }
+         
+
+        return (
+            <div className='ui'>
+                <Sidebar.Pushable className='bottom attached' as={Segment} style={{height: `${sideSize}px`}}>
+                    <Sidebar as={Menu} visible className='inline testWidth ' animation='uncover' width={sideWidth} 
+                           vertical inverted>
+                        {row}            
+                    </Sidebar>
+                    <Sidebar.Pusher>
+                        <Segment basic>
+                            <Header as='h1'> Application Content </Header>
+                        </Segment>
+                    </Sidebar.Pusher>
+                </Sidebar.Pushable>
+            </div>
+        );
+    }
+
+}
+
+export default windowSize(SideBar5);
