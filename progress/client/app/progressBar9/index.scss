@@ -1,0 +1,32 @@
+:root
+{
+    --progress-height: 20px;
+    --progress-deg: 45deg;
+    --progress-first-color: blue;
+    --progress-second-color: white;
+    --animationDuration: 1s;
+}
+
+.moveBar
+{
+    height: var(--progress-height);
+    width: 100%;
+    background-color: var(--progress-second-color);
+
+    >div
+    {
+        width: 100%;
+        height: 100%;
+        background-size: 30px 30px;
+        background-image: linear-gradient(45deg, var(--progress-first-color) 25%, transparent 25%,
+                        transparent 50%, var(--progress-first-color) 50%, var(--progress-first-color) 75%,
+                        transparent 75%, transparent);            
+    
+        animation: animate-stripes var(--animationDuration) linear infinite;     
+    }        
+}
+
+@keyframes animate-stripes {
+    from {background-position: 0 0;} 
+    to {background-position: 60px 0;}
+}

@@ -16,6 +16,11 @@ import SideBar2 from './sideBar2/SideBar2.jsx'
 import SideBar3 from './sideBar3/SideBar3.jsx'
 import SideBar4 from './sideBar4/SideBar4.jsx'
 import SideBar5 from './sideBar5/SideBar5.jsx'
+import SideBar6 from './sideBar6/SideBar6.jsx'
+import SideBar7 from './sideBar7/SideBar7.jsx'
+import SideBar8 from './sideBar8/SideBar8.jsx'
+
+
 
 class App extends React.Component {
   render() {
@@ -37,6 +42,23 @@ class App extends React.Component {
                                                                       'gamepad': {name: 'Gameboy', content: ['Nintendo', 'Playstation', 'Xbox']},
                                                                       'home' : {name: 'Home', content: ['Appartement', 'Maison', 'Chalet']}
                                                                     }}/>)} />
+
+          <Route path='/sideBar6' component={() => (
+            <SideBar6 menuItem={{'camera': {index: 0, header: 'camera', subItem: ['first', 'second', 'three']},
+                                 'gamepad': {index: 1, header: 'VideoGames', subItem:['four', 'five', 'six']}
+
+            }
+            } />
+          )}/>
+          <Route path='/sideBar7' component={() => <SideBar7 />} />
+          <Route path='/sideBar8' component={() => <SideBar8 
+                                                      sideBarItem={{
+                                                        'gamepad': {name: 'My Authorizations', subMenu: ['Sessions', 'Passwords'] },
+                                                        'camera': {name: 'Audit', subMenu: ['Current Sessions', 'Session History', 'Account History', 'Approval History', 'Authentification History', 'Connection Statistics'] },
+                                                        'tag': {name: 'Users', subMenu: ['Accounts', 'Groups', 'Profiles'] }
+                                                        
+                                                      }}
+                                                      />} />
         </Switch>
       </main>
     

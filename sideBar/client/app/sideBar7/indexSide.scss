@@ -1,0 +1,65 @@
+@media screen and (max-width: 991px)
+{
+    .sideBarStyle
+    {
+        top: 0;
+        left: 0%;
+        position: fixed;
+        bottom: 0;
+
+        .sideBarOnLargeScreen
+        {
+            display: none;
+        }
+
+        .sideBarOnTabletScreen
+        {
+            height: 100%;
+            display: inline-block;
+            .icon
+            {
+                background-color: cyan;
+            }
+
+            .openSideBar
+            {
+                height: 100%;
+                top: 0;
+                bottom: 0;
+                width: 20%;
+                background-color: pink;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 992px)
+{
+    .sideBarStyle
+    {
+        top: 0;
+        bottom: 0;
+        left: 0;
+        position: fixed;
+        width: 5%;
+        background-color: pink;
+
+        .sideBarOnLargeScreen
+        {
+            display: inline-block;
+            
+            
+        }
+
+        .sideBarOnTabletScreen
+        {
+            display: none;
+        }
+    }
+
+    .componentGrid
+    {
+        margin-left: 5%;
+    }
+
+}

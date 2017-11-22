@@ -27,7 +27,7 @@ class BasketLine extends React.Component
                 <td> <h1> Coming soon </h1></td>
                 <td>{this.calculator()}</td>
             </tr>
-            
+
         );
     }
 

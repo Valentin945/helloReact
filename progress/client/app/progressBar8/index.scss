@@ -1,0 +1,23 @@
+:root
+{
+    --progress-height: 20px;
+    --progress-deg: 45deg;
+    --progress-first-color: #2185D0;
+    --progress-second-color: red;
+}
+
+.progressBarStyle2
+{
+  
+    // height: var(--progress-height);
+    >.bar{
+    background: repeating-linear-gradient(var(--progress-deg),
+                                          var(--progress-first-color),
+                                          var(--progress-first-color) 10px,                                          
+                                          var(--progress-second-color) 10px,
+                                          var(--progress-second-color) 20px,
+                                          var(--progress-first-color) 20px                            
+                                          )!important;
+                    opacity: 1;
+    }
+}

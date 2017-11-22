@@ -18,6 +18,13 @@ import ProgressBar3 from './progressBar3/index.jsx'
 import ProgressBar4 from './progressBar4/index.jsx'
 import ProgressBar5 from './progressBar5/index.jsx'
 import ProgressBar6 from './progressBar6/index.jsx'
+import ProgressBar7 from './progressBar7/index.jsx'
+import ProgressBar8 from './progressBar8/index.jsx'
+import ProgressBar9 from './progressBar9/index.jsx'
+import ProgressBar10 from './progressBar10/index.jsx'
+import ProgressBar11 from './progressBar11/index.jsx'
+
+
 
 class App extends React.Component {
   render() {
@@ -52,6 +59,17 @@ class App extends React.Component {
         <ProgressBar5 text='valou'/>
         <hr />
         <ProgressBar6 />
+
+        <hr />
+        <ProgressBar7 heightBar={20} colorBar={['white', '#2185D0']}/>
+        <hr />
+        <ProgressBar8 />
+        <hr />
+        <ProgressBar9 height={15} colorBar={['orange', '#2185D0']} timeAnim={'2'}/>
+
+        <hr />
+        <ProgressBar10/>
+        
       </div>
     );
   }

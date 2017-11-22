@@ -1,0 +1,43 @@
+:root
+{
+    --progress-height: 20px;
+    --progress-deg: 45deg;
+    --progress-first-color: grey;
+    --progress-first-color-darker: grey;
+    --progress-second-color: red;
+    --progress-second-color-darker: red;
+}
+
+.progressBarStyle
+{
+    height: var(--progress-height);
+    background: repeating-linear-gradient(var(--progress-deg),
+                                          white,
+                                          white 10px,
+                                          #2185D0 10px,
+                                          #2185d0 20px,
+                                          white 20px                                   
+                                          ) top left;
+
+    .current
+    {
+        opacity: 1;
+        height: var(--progress-height);
+        background: repeating-linear-gradient(var(--progress-deg),
+                                              var(--progress-second-color),
+                                              var(--progress-second-color) 10px,
+                                              var(--progress-second-color-darker) 10px,                                          
+                                              var(--progress-second-color-darker) 20px,
+                                              var(--progress-second-color) 20px                                          
+                                              ) top left;
+       
+        animation: barberole 3s infinite;
+    }
+}
+
+@keyframes barberole
+{
+    from {width: 0%;
+            }
+    to {width: 100%;}
+}

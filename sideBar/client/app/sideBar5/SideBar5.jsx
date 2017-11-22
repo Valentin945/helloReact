@@ -112,7 +112,7 @@ class SideBar5 extends Component
                         <Dropdown open={dropdownMenuVisible === pid}  icon={<Icon size='big' name={pid}/>} style={{height: '60px'}} labeled floating className='link item' 
                                   onClick={() => {  this.setState({subMenuVisible: pid});
                                                     this.changeSizeItem()}} onMouseEnter={() => {this.setState({dropdownMenuVisible: pid})}} onMouseLeave={() => {this.setState({dropdownMenuVisible: ''})}} >
-                            <Dropdown.Menu >
+                            <Dropdown.Menu>
                                 <Dropdown.Item className='fluid nameToDisplay' style={{height: '50px', padding: '10px'}} >
                                     {pid.toUpperCase()}
                                 </Dropdown.Item>

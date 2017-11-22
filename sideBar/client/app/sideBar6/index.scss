@@ -1,0 +1,123 @@
+
+
+
+.buttonForSideBar
+{
+    position: fixed;
+    top: 0;
+    left: 0;
+    animation: speedDisplay 1s;
+}
+
+
+.sideBarPure
+{
+    top: 0;
+    bottom: 0;
+    height: 100%;
+    position: fixed;
+    background-color: #B4F3EC;
+    transition: width 0.5s;
+    
+
+    .ui.vertical.menu
+    {
+        
+        width: 100%;
+        background-color: #B4F3EC;
+        overflow: visible;
+        height: 30px;
+        .item
+        {
+            
+            background-color: #B4F3EC;
+            color: #7D7461;
+            transition: width 0.5s;
+            height: 100%;
+            
+
+            .header
+            {
+                &:hover{
+                    span{
+                        opacity: 0;
+                        display: inline;
+                        margin-left: 10px;
+                        animation: openDisplay 1s linear forwards;
+                    }
+                }
+            }
+
+            span
+            {
+                display: none;    
+            }
+        }
+        .active.item
+        {
+            transition: width 0.5s;
+            .menu
+            {
+                opacity: 0;
+                animation: speedDisplay 1s forwards;
+            }
+
+            
+            &:hover
+            {
+                 span
+                 {
+                    margin-left: 10px;
+                 }
+            }
+            width: 100%;
+            height: 100%;
+            display: inline-block;
+            background-color: #B4F3EC ;
+            color: #7D7461;
+            span{
+                animation: openDisplay 1s forwards;
+                display: inline;
+                margin-left: 10px;
+                opacity: 1;
+            }
+
+
+
+        }
+    }
+}
+
+@keyframes speedDisplay
+{
+    from{
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes openDisplay
+{
+    0%
+    {
+            opacity: 0;
+            display: none;
+        
+    }
+    20%
+    {
+        opacity: 0;
+    }
+    70%
+    {
+        opacity: 0.5;
+    }
+    to
+    {
+        opacity: 1;
+       display: inline;
+          
+    }
+}
