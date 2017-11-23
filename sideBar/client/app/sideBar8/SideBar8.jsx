@@ -1,10 +1,13 @@
 import React, {Component} from 'react'
 import {
     Button,
-    Icon
+    Icon,
+    Image
 } from 'semantic-ui-react'
 
-import './sideBarStyle.scss'
+import './sideBarStyleScreen.scss'
+import './sideBarStyleTablet.scss'
+
 
 class SideBar8 extends Component
 {
@@ -13,7 +16,8 @@ class SideBar8 extends Component
         super(props)
         this.state = {
             open: false,
-            displaySub: -1
+            displaySub: -1,
+            onClickEffect: -1
         }
         this.handleSideBarElement = this.handleSideBarElement.bind(this)
         this.handleSideBarSubMenu = this.handleSideBarSubMenu.bind(this)    
@@ -21,11 +25,13 @@ class SideBar8 extends Component
 
     handleSideBarSubMenu(subMenu)
     {
+        const {onClickEffect} = this.state
         const tmp = Object.keys(subMenu).map((pid, index) => {
             
             return (
-                <li>
-                    {pid}
+                <li className={onClickEffect === index? 'active': ''}
+                    onClick={() => this.setState({onClickEffect: index})}>
+                    {subMenu[index]}
                 </li>
             )
         })
@@ -54,7 +60,7 @@ class SideBar8 extends Component
                         </span>
                     </div>
                     <div className='marginSubMenu'
-                          style={{display: open? '': 'none'}}>
+                          style={{display: open && index === displaySub? '': 'none'}}>
                         <ul
                             style={{display: displaySub === index? 'block': 'none'}}>
                             {subMenu}
@@ -82,14 +88,20 @@ class SideBar8 extends Component
                                         onClick={() => this.setState({open: !open})}
                                         />
                                 </li>
-                                <li> slsl </li>
-                                <li> slsl </li>
-                                <li> slsl </li>  
+                                <li>
+                                   <div><img src='./app/sideBar8/img/WAB-logo.png' style={{verticalAlign: 'middle'}} />
+                                   
+                                   </div>                                    
+                                    
+                                </li>
+                                 <li>
+                                        Bastion
+                                </li>
                             </ul>
                         </div>
                         <div className='sideBarPc'
                              style={{
-                               width: open? '250px': ''  
+                               width: open? '230px': ''  
                              }}>
                             <ul>
                                 {this.handleSideBarElement()}

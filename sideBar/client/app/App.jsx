@@ -53,9 +53,17 @@ class App extends React.Component {
           <Route path='/sideBar7' component={() => <SideBar7 />} />
           <Route path='/sideBar8' component={() => <SideBar8 
                                                       sideBarItem={{
+                                                        'unlock': {name: 'My Preferences', subMenu: []},
                                                         'gamepad': {name: 'My Authorizations', subMenu: ['Sessions', 'Passwords'] },
                                                         'camera': {name: 'Audit', subMenu: ['Current Sessions', 'Session History', 'Account History', 'Approval History', 'Authentification History', 'Connection Statistics'] },
-                                                        'tag': {name: 'Users', subMenu: ['Accounts', 'Groups', 'Profiles'] }
+                                                        'tag': {name: 'Users', subMenu: ['Accounts', 'Groups', 'Profiles'] },
+                                                        'lock': {name: 'Ressources', subMenu: ['Domains', 'Devices', 'Applications', 'Accounts', 'Clusters', 'Groups', 'Checkout Policies']},
+                                                        'in cart': {name: 'Password Management', subMenu: ['Password Change plugins', 'password change policies']},
+                                                        'help': {name: 'Session Management', subMenu: ['Recording Options', 'Connection Policies']},
+                                                        'info': {name: 'Authorizations', subMenu: ['Manage Authorizations', 'My current approvals', 'My approval history']},
+                                                        'sign out': {name: 'Configuration', subMenu: ['Time Frames', 'External Authentifications', 'LDAP/AD Domains', 'Notifications', 'Local Password policy', 'Connection Parameters', 'x509 Parameters', 'Configuration options', 'API keys', 'License', 'Encryption', 'audit logs']},
+                                                        'assistive listening systems': {name: 'System', subMenu: ['Status', 'Network', 'Time service', 'Remote Storage', 'Siem integration', 'Snmp', 'SMTP Server', 'Service Control', 'Syslog', 'Boot Messages', 'Backup/Restore']},
+                                                        'paste' : {name: 'Import/Export', subMenu: ['csv', 'Users from LDAP']}
                                                         
                                                       }}
                                                       />} />

@@ -1,0 +1,24 @@
+
+
+
+@media screen and (max-width: 991px) {
+    .sideBarAndMenu
+    {
+        .forPcScreen
+        {
+            display: none;
+        }
+
+        .forTableScreen
+        {
+            display: inline-block;
+        }
+
+    }
+    
+    .componentInSideBar
+    {
+
+    }
+
+}
