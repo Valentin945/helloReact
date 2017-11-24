@@ -17,21 +17,22 @@ class SideBar8 extends Component
         this.state = {
             open: false,
             displaySub: -1,
-            onClickEffect: -1
+            onClickEffect: {index: -1, text: ''}
         }
         this.handleSideBarElement = this.handleSideBarElement.bind(this)
         this.handleSideBarSubMenu = this.handleSideBarSubMenu.bind(this)    
     }
 
-    handleSideBarSubMenu(subMenu)
+    handleSideBarSubMenu(subMenu, pIndex)
     {
         const {onClickEffect} = this.state
+
         const tmp = Object.keys(subMenu).map((pid, index) => {
             
             return (
-                <li className={onClickEffect === index? 'active': ''}
-                    onClick={() => this.setState({onClickEffect: index})}>
-                    {subMenu[index]}
+                <li className={onClickEffect.text === subMenu[index]? 'active': ''}
+                    onClick={() => this.setState({onClickEffect: {index: pIndex, text: subMenu[index]}})}>
+                    <span> {subMenu[index]} </span>
                 </li>
             )
         })
@@ -41,22 +42,44 @@ class SideBar8 extends Component
 
     handleSideBarElement()
     {
-        const {sideBarItem} = this.props;
+        const {sideBarItem, position} = this.props;
         const {open, displaySub} = this.state;
+        const forPadding = position === 'right'? 'paddingRight': 'paddingLeft'
 
         const tmp = Object.keys(sideBarItem).map((pid, index) => {
             const objTmp = sideBarItem[pid]
-            const subMenu = this.handleSideBarSubMenu(objTmp.subMenu);
+            const subMenu = this.handleSideBarSubMenu(objTmp.subMenu, index);
             return(
-                <li style={{height: open? '100%':''
+                <li 
+                    style={{height: open? '100%':''
                             }}
                     className={open? 'active': ''}
-                    onClick={() => this.setState({open: true, displaySub: index})}>
-                    <div>
-                        <Icon name={pid} size='large' />
+                    onClick={() =>{ 
+                        if (subMenu.length === 0)
+                        {
+                            this.setState({onClickEffect: {index: index, text: 'alone'},
+                                            displaySub: index})
+                        }
+                        else
+                        {
+                            this.setState({open: true, displaySub: index})
+                        }
+                    }}>
+                    
+                    <div
+                        style={{paddingLeft: position === 'right'? '0px': '15px',
+                                paddingRight: position === 'right'? '15px': '0px'}}>
+
+                        <Icon name={pid} size='large'
+                               style={{float: position, overflow: 'hidden'}} />
+
                         <span
-                            style={{display: open? 'inline-block': ''}}>
-                            {objTmp['name'].toUpperCase()}
+                            style={{display: open? 'inline-block': '',
+                                    fontWeight: displaySub === index? 'bold': '',
+                                    width: '100%'
+                                    }}
+                            >
+                            {objTmp['name']}
                         </span>
                     </div>
                     <div className='marginSubMenu'
@@ -72,55 +95,51 @@ class SideBar8 extends Component
         return tmp;
     }
 
-
     render()
     {
-        const {open} = this.state;
+        const position = this.props.position || 'left';
+        const {open, displaySub,  onClickEffect} = this.state;
         const sideBarMenu = this.handleSideBarElement();
         return (
             <div>
                 <div className='sideBarAndMenu'>
                     <div className='forPcScreen'>
                         <div className='menuTop'>
-                            <ul>
-                                <li> 
+                            <ul >
+                                <li
+                                    style={{float: position}}> 
                                     <Icon name='sidebar' size='big' 
                                         onClick={() => this.setState({open: !open})}
                                         />
                                 </li>
-                                <li>
-                                   <div><img src='./app/sideBar8/img/WAB-logo.png' style={{verticalAlign: 'middle'}} />
-                                   
+                                <li
+                                    style={{float: 'left'}}>
+                                   <div><img src='./app/sideBar8/img/WAB-logo.png' />
+                                   &nbsp;
+                                    <span style={{fontWeight: 'lighter',
+                                                fontSize: '34px',
+                                                color: '#939598'}}>  Bastion </span>
+
                                    </div>                                    
                                     
                                 </li>
-                                 <li>
-                                        Bastion
-                                </li>
+                            
                             </ul>
                         </div>
                         <div className='sideBarPc'
+                             onMouseEnter={() => this.setState({open: true})}
+                             onMouseLeave={() => this.setState({open: false,
+                                                                displaySub: onClickEffect.text === ''? -1: onClickEffect.index})}
                              style={{
-                               width: open? '230px': ''  
+                               width: open? '230px': '',
+                               left: position === 'left'? '0px': '',
+                               right: position === 'right'? '0px': ''
                              }}>
                             <ul>
                                 {this.handleSideBarElement()}
                             </ul>
                         </div>
                     </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
 
                     <div className='forTabletScreen'>
           

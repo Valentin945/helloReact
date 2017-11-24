@@ -51,14 +51,15 @@ class App extends React.Component {
             } />
           )}/>
           <Route path='/sideBar7' component={() => <SideBar7 />} />
-          <Route path='/sideBar8' component={() => <SideBar8 
+          <Route path='/sideBar8' component={() => <SideBar8
+                                                      position='left'
                                                       sideBarItem={{
                                                         'unlock': {name: 'My Preferences', subMenu: []},
                                                         'gamepad': {name: 'My Authorizations', subMenu: ['Sessions', 'Passwords'] },
                                                         'camera': {name: 'Audit', subMenu: ['Current Sessions', 'Session History', 'Account History', 'Approval History', 'Authentification History', 'Connection Statistics'] },
-                                                        'tag': {name: 'Users', subMenu: ['Accounts', 'Groups', 'Profiles'] },
+                                                        'users': {name: 'Users', subMenu: ['Accounts', 'Groups', 'Profiles'] },
                                                         'lock': {name: 'Ressources', subMenu: ['Domains', 'Devices', 'Applications', 'Accounts', 'Clusters', 'Groups', 'Checkout Policies']},
-                                                        'in cart': {name: 'Password Management', subMenu: ['Password Change plugins', 'password change policies']},
+                                                        'in cart': {name: 'Password Management', subMenu: ['Password Change plugins', 'Password Change Policies']},
                                                         'help': {name: 'Session Management', subMenu: ['Recording Options', 'Connection Policies']},
                                                         'info': {name: 'Authorizations', subMenu: ['Manage Authorizations', 'My current approvals', 'My approval history']},
                                                         'sign out': {name: 'Configuration', subMenu: ['Time Frames', 'External Authentifications', 'LDAP/AD Domains', 'Notifications', 'Local Password policy', 'Connection Parameters', 'x509 Parameters', 'Configuration options', 'API keys', 'License', 'Encryption', 'audit logs']},
