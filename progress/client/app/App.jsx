@@ -23,6 +23,7 @@ import ProgressBar8 from './progressBar8/index.jsx'
 import ProgressBar9 from './progressBar9/index.jsx'
 import ProgressBar10 from './progressBar10/index.jsx'
 import ProgressBar11 from './progressBar11/index.jsx'
+import ProgressBar12 from './progressBar12/index.jsx'
 
 
 
@@ -69,6 +70,9 @@ class App extends React.Component {
 
         <hr />
         <ProgressBar10/>
+
+        <hr />
+        <ProgressBar12 />
         
       </div>
     );

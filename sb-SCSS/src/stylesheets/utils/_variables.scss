@@ -1,0 +1,29 @@
+$tablet-width: "(max-width: 1023px)";
+$desktop-width: "(min-width: 1024px)";
+
+
+$tm-Color: (
+    'hover' : blue,
+    'background': white,
+);
+
+$tm-height: 50px;
+
+$sb-size: (
+    'width': 60px,
+    'open': 230px,
+);
+
+$sb-sidebar-list-Color: (
+    'hover': orange,
+    'background': grey,
+    'subcolor': white, 
+    'subactive': yellow,
+    'aside': blue,
+    'border': blue,
+);
+
+$tt-toolstip-Color: (
+    'color': white,
+    'background': black,
+)

@@ -1,0 +1,54 @@
+:root
+{
+    --line-height: 50px;
+}
+
+.menuTop
+{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    border-bottom: 1px solid;
+
+    >ul{
+        margin: 0;
+        padding: 0;
+        margin-left: 12px;
+        padding-left: 0px;
+        height: 100%;
+        width: 100%;    
+        
+
+        >li
+        {
+            height: 100%;
+            line-height: var(--line-height);
+            display: inline-block;
+            width: fit-content;
+            // white-space: nowrap;
+            
+            .icon
+            {
+                border-style: none;
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+            
+            img
+            {
+                width: auto;
+                display: inline-block;
+            }
+            
+            span
+            {
+                display: inline-block;
+            }
+
+            margin-right: 40px;
+            
+        }
+    }   
+}

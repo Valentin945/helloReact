@@ -1,0 +1,27 @@
+.componentInSideBar {
+    width: 100%;
+    transition: margin 0.25s;
+    margin-top: $tm-height;
+    @include desktop {
+        &.left {
+            left: 0px;
+            margin-left: map-get($map: $sb-size, $key: 'open');
+        }
+        &.right {
+            right: 0px;
+            margin-right: map-get($map: $sb-size, $key: 'open');
+        }
+    }
+    @include tablet {
+        margin: $tm-height 0 0 0;
+        &.open {
+            opacity: 0.5;
+            &.left {
+                margin-left: map-get($map: $sb-size, $key: 'open');
+            }
+            &.right {
+                margin-right: map-get($map: $sb-size, $key: 'open');
+            }
+        }
+    }
+}

@@ -1,0 +1,67 @@
+.marginSubMenu
+{
+    display: none;
+    background-color: map-get($map: $tm-Color, $key: 'background');
+    width: 100%;
+    height: auto;
+    >ul
+    {
+        margin: 0px;
+        padding-left: 10px;
+        text-indent: 2em;
+        font-size: 13px;
+        width: auto;
+        list-style: none;
+        background-color: map-get($map: $sb-sidebar-list-Color, $key: 'aside');
+
+        li
+        {
+            height: auto;
+            padding: 8px 0px 8px 0px;
+            margin: 0;
+            white-space: nowrap;
+            text-align: left;
+            line-height: 100%;
+            align-content: center;
+            overflow: hidden;
+            animation: 0;
+            background-color: map-get($map: $sb-sidebar-list-Color, $key: 'subcolor');
+            &:hover
+            {
+                width: 100%;
+                background-color: orange;
+            }
+
+            &.active
+            {
+              background-color: map-get($map: $sb-sidebar-list-Color, $key: 'subactive');
+            }
+ 
+        }
+
+        &.left
+        {
+          direction: ltr;
+          padding-left: 10px;
+          >li
+          {
+            text-align: left;
+          }
+        }
+
+        &.right
+        {
+          direction: rtl;
+          padding-right: 10px;
+          >li
+          {
+            text-align: right;
+          }
+        }
+    }
+
+    &.active
+    {
+      display: block;
+    }
+}

@@ -1,0 +1,193 @@
+#appLaunch .componentInSideBar {
+  width: 100%;
+  transition: margin 0.25s;
+  margin-top: 50px; }
+  @media (min-width: 1024px) {
+    #appLaunch .componentInSideBar.left {
+      left: 0px;
+      margin-left: 230px; }
+    #appLaunch .componentInSideBar.right {
+      right: 0px;
+      margin-right: 230px; } }
+  @media (max-width: 1023px) {
+    #appLaunch .componentInSideBar {
+      margin: 50px 0 0 0; }
+      #appLaunch .componentInSideBar.open {
+        opacity: 0.5; }
+        #appLaunch .componentInSideBar.open.left {
+          margin-left: 230px; }
+        #appLaunch .componentInSideBar.open.right {
+          margin-right: 230px; } }
+
+#appLaunch .menuTop {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  border-bottom: 1px solid grey;
+  background-color: white; }
+  @media (min-width: 1024px) {
+    #appLaunch .menuTop .tablet {
+      display: none; } }
+  @media (max-width: 1023px) {
+    #appLaunch .menuTop .desktop {
+      display: none; } }
+  #appLaunch .menuTop > ul {
+    margin: 0;
+    padding: 0;
+    margin-left: 12px;
+    padding-left: 0px;
+    height: 100%;
+    width: 100%; }
+    #appLaunch .menuTop > ul > li {
+      height: 50px;
+      line-height: 50px;
+      display: inline-block;
+      width: fit-content;
+      margin-right: 40px; }
+      #appLaunch .menuTop > ul > li .icon {
+        color: black;
+        border-style: none; }
+        #appLaunch .menuTop > ul > li .icon:hover {
+          cursor: pointer; }
+      #appLaunch .menuTop > ul > li img {
+        width: auto;
+        display: inline-block; }
+      #appLaunch .menuTop > ul > li span {
+        margin-left: 10px;
+        font-weight: lighter;
+        font-size: 34px;
+        color: #939598;
+        text-align: left;
+        display: inline-block; }
+      #appLaunch .menuTop > ul > li.left {
+        float: left; }
+      #appLaunch .menuTop > ul > li.right {
+        float: right; }
+
+#appLaunch .sideBarStyle {
+  bottom: 0;
+  background-color: #0078D7;
+  transition: width 0.25s;
+  margin: 51px 0px 0px 0px;
+  top: 0;
+  position: fixed; }
+  @media (max-width: 1023px) {
+    #appLaunch .sideBarStyle {
+      width: 0px;
+      overflow: hidden; } }
+  @media (min-width: 1024px) {
+    #appLaunch .sideBarStyle {
+      width: 230px; } }
+  #appLaunch .sideBarStyle.open {
+    width: 230px; }
+  #appLaunch .sideBarStyle > ul {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 0;
+    text-align: right;
+    transition: height 1s; }
+    #appLaunch .sideBarStyle > ul li {
+      overflow-wrap: normal;
+      border-bottom: solid 1px #d3d3d3; }
+      #appLaunch .sideBarStyle > ul li .li-title {
+        display: flex;
+        white-space: nowrap;
+        overflow-wrap: normal;
+        justify-content: space-between;
+        height: 40px;
+        width: 100%; }
+        #appLaunch .sideBarStyle > ul li .li-title .i-title__chevron {
+          line-height: 1.6;
+          color: white; }
+        #appLaunch .sideBarStyle > ul li .li-title .d-title__text-logo {
+          color: white; }
+          #appLaunch .sideBarStyle > ul li .li-title .d-title__text-logo .nameOfMenu {
+            align-self: flex-start;
+            font-size: 13px;
+            display: inline-block; }
+            #appLaunch .sideBarStyle > ul li .li-title .d-title__text-logo .nameOfMenu.active {
+              font-weight: bold; }
+    #appLaunch .sideBarStyle > ul:hover {
+      cursor: pointer; }
+  #appLaunch .sideBarStyle .iconsGroup {
+    width: 26px;
+    text-align: center;
+    vertical-align: middle;
+    color: white; }
+    #appLaunch .sideBarStyle .iconsGroup .icon:nth-child(2) {
+      font-size: 0.7em;
+      color: orange; }
+  #appLaunch .sideBarStyle.left {
+    border-right: solid 1px blue;
+    left: 0; }
+    #appLaunch .sideBarStyle.left .iconsGroup {
+      margin-right: 0.25rem; }
+    #appLaunch .sideBarStyle.left .li-title {
+      padding: 10px 0 0 15px;
+      flex-direction: row;
+      direction: ltr; }
+      #appLaunch .sideBarStyle.left .li-title .d-title__text-logo {
+        display: flex;
+        flex-direction: row; }
+      #appLaunch .sideBarStyle.left .li-title .icon:nth-child(2) {
+        float: right; }
+      #appLaunch .sideBarStyle.left .li-title .nameOfMenu {
+        padding: 0 0 0 10px; }
+  #appLaunch .sideBarStyle.right {
+    border-left: solid 1px blue;
+    right: 0; }
+    #appLaunch .sideBarStyle.right .iconsGroup {
+      margin-left: 0.25rem; }
+    #appLaunch .sideBarStyle.right .li-title {
+      padding: 10px 15px 0 0px;
+      flex-direction: row-reverse; }
+      #appLaunch .sideBarStyle.right .li-title .d-title__text-logo {
+        display: flex;
+        flex-direction: row-reverse; }
+        #appLaunch .sideBarStyle.right .li-title .d-title__text-logo .nameOfMenu {
+          padding: 0 10px 0 0;
+          text-align: right; }
+      #appLaunch .sideBarStyle.right .li-title .icon:nth-child(2) {
+        float: left; }
+
+#appLaunch .marginSubMenu {
+  display: none;
+  background-color: white;
+  width: 100%;
+  height: auto; }
+  #appLaunch .marginSubMenu > ul {
+    margin: 0px;
+    text-indent: 2em;
+    font-size: 13px;
+    width: auto;
+    list-style: none;
+    background-color: lightgrey; }
+    #appLaunch .marginSubMenu > ul li {
+      height: auto;
+      padding: 8px 0px 8px 0px;
+      margin: 0;
+      white-space: nowrap;
+      text-align: left;
+      line-height: 100%;
+      align-content: center;
+      overflow: hidden;
+      animation: 0;
+      background-color: white; }
+      #appLaunch .marginSubMenu > ul li:hover {
+        width: 100%;
+        background-color: #FFCB60; }
+      #appLaunch .marginSubMenu > ul li.active {
+        background-color: lightsteelblue; }
+    #appLaunch .marginSubMenu > ul.left {
+      direction: ltr;
+      padding-left: 10px; }
+      #appLaunch .marginSubMenu > ul.left > li {
+        text-align: left; }
+    #appLaunch .marginSubMenu > ul.right {
+      direction: rtl;
+      padding-right: 10px; }
+      #appLaunch .marginSubMenu > ul.right > li {
+        text-align: right; }
+  #appLaunch .marginSubMenu.active {
+    display: block; }

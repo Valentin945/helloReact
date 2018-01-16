@@ -1,0 +1,157 @@
+.sideBarStyle {
+  bottom: 0;
+  background-color: map-get($map: $sb-sidebar-list-Color, $key: 'background');
+  transition: width 0.25s;
+  margin: $tm-height 0px 0px 0px;
+  width: map-get($map: $sb-size, $key: 'width');
+  top: 0;
+  position: fixed;
+
+  @include tablet {
+    width: 0px;
+    overflow: hidden;
+  }
+  &.open {
+    width: map-get($map: $sb-size, $key: 'open');
+    >ul
+    {
+      li:hover{
+        .toolstip {
+          display: none;
+        }
+      }
+    }
+  }
+  >ul {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 0;
+    text-align: right;
+    li {
+      overflow-wrap: normal;
+      border-bottom: solid 1px #d3d3d3;
+      .closeSideBarIcon
+      {
+        display: none;
+      }
+      
+      .liTitle {
+        white-space: nowrap;
+        overflow-wrap: normal;
+        height: 40px;
+        .liDefinition
+        {
+          
+          display: inline-block;
+          position: relative;
+          height: 40px;
+          width: 90%; 
+          white-space: nowrap;
+          .nameOfMenu
+          {
+            font-size: 12px;
+            display: none;
+            width: 100px;
+            &.active
+            {
+              font-weight: bold;
+            }
+          }
+          .closeSideBarIcon
+          {
+            width: 10%;
+            display: inline-block;
+          }
+        }
+      }
+      &:hover {
+        cursor: pointer;
+        .toolstip {
+          display: inline-block;
+        }
+      }
+    }
+  }
+
+  .iconsGroup
+  {
+    width: 26px;
+    text-align: center;
+    vertical-align: middle;
+    .icon:nth-child(2)
+    {
+      font-size: 0.7em;
+    }
+  }
+
+  &.left {
+    border-right: solid 1px map-get($map: $sb-sidebar-list-Color, $key: 'border');
+    left: 0;
+    .iconsGroup
+    {
+      margin-right: 0.25rem; 
+    }
+    .liTitle {
+      direction: ltr;
+      text-align: left;
+      // padding: 0 0 0 15px;
+      .liDefinition
+      {
+        padding: 10px 0 0 15px;
+      }
+    }
+    &.open {
+      >ul {
+        li {
+          .closeSideBarIcon
+          {
+            display: inline-block;
+          }
+          overflow: hidden;
+     
+            .nameOfMenu
+            {
+              display: inline;
+              padding: 0 0 0 10px;
+            }
+            
+          }
+        }
+      }
+    
+  }
+  &.right {
+    border-left: solid 1px map-get($map: $sb-sidebar-list-Color, $key: 'border');
+    .liDefinition
+    {
+      padding: 10px  15px 0 0;
+    }
+    right: 0;
+    .iconsGroup
+    {
+      margin-left: 0.25rem; 
+    }
+    &.open {
+      >ul {
+        li {
+          .closeSideBarIcon
+          {
+            display: inline-block;
+          }
+          overflow: hidden;
+          .liTitle {
+            direction: rtl;
+            text-align: right;
+            // padding: 0 15px 0 0;
+          
+            .nameOfMenu
+            {
+              display: inline;
+              padding: 0 10px 0 0;
+            }
+          }
+        }
+      }
+    }
+  }
+}

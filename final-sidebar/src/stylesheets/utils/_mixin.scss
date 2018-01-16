@@ -1,0 +1,19 @@
+@mixin height($size)
+{
+    height: $size;
+    line-height: $size;
+}
+
+@mixin tablet {
+    @media #{$tablet-width}
+    {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media #{$desktop-width}
+    {
+        @content;
+    }
+}

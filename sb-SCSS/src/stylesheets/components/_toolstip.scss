@@ -1,0 +1,39 @@
+.toolstip
+{
+  display: none;
+  position: absolute;
+  z-index: 1;
+  background-color: black;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 45px;
+  padding: 5px 0;
+  top: -5px;
+  margin-left: 0px;
+  width: 150px;
+  
+  &.left
+  {
+    margin-left: 5px;
+    direction: ltr;
+    left: 110%;
+    &::after
+    {
+        right: 100%;
+        border-color: transparent black transparent transparent;
+    }
+  }
+  
+  &.right
+  {
+    direction: rtl;
+    right: 110%;
+    &::after
+    {
+        left: 100%;
+        border-color: transparent transparent transparent black;
+    }
+  }
+
+}

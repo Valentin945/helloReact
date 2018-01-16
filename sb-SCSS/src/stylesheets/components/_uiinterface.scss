@@ -1,0 +1,55 @@
+.componentInSideBar
+{
+    width: 100%;
+    transition: margin 0.25s;
+    margin-top: $tm-height;
+
+    .left
+    {
+        left: 0px;
+    }
+
+    .right
+    {
+        right: 0px;
+    }
+
+    @include tablet {
+        &.open
+        {
+            opacity: 0.5;
+            &.left
+            {
+                margin-left: map-get($map: $sb-size, $key: 'open');
+            }
+            &.right
+            {
+                margin-right: map-get($map: $sb-size, $key: 'open');
+            }
+        }
+    }
+
+    @include desktop {
+        &.open
+        {
+            &.left
+            {
+                margin-left: map-get($map: $sb-size, $key: 'open');
+            }
+            &.right
+            {
+                margin-right: map-get($map: $sb-size, $key: 'open');
+            }
+        }
+
+        &.left
+        {
+            margin-left: map-get($map: $sb-size, $key: 'width');
+        }
+
+        &.right
+        {
+            margin-right: map-get($map: $sb-size, $key: 'width');
+        }
+    }
+}

@@ -1,0 +1,39 @@
+/// Youtube video to learn about the five pattern Component in reactJS
+https://www.youtube.com/watch?v=YaZg8wg39QQ 
+
+
+/* Useful link to learn how to setup the reactJS alongside Webpack | Babel
+  Becareful there are however some issues in the tutorial:
+  1.When setting up babel use the following line
+     npm i babel-core babel-loader babel-preset-es2015 babel-preset-react -S
+  2. When configuring webpack.config.js:
+    In module/loaders/loader: use 'babel-loader' instead 'babel'
+*/
+https//www.codementor.io/tamizhvendan/beginner-guide-setup-reactjs-environment-npm-babel-6-webpack-du107r9zr
+
+/// Another link to setup React but it uses yarn and not npm
+https://scotch.io/tutorials/setup-a-react-environment-using-webpack-and-babel
+
+/// Best link to learn how to use React (Except the config)
+https://openclassrooms.com/courses/build-web-apps-with-reactjs
+
+
+/// How to add the certificat for git
+https://superuser.com/questions/437330/how-do-you-add-a-certificate-authority-ca-to-ubuntu
+
+/// Understand React-Router
+https://css-tricks.com/react-router-4/
+
+/// Everything on semantic
+https://www.youtube.com/watch?v=a9mUH1EWp40
+
+/// Flexbox => Understand how it works
+https://css-tricks.com/snippets/css/a-guide-to-flexbox/
+
+/// JS link
+ https://blog.carbonfive.com/2013/10/27/the-javascript-event-loop-explained/
+
+/// Programming code
+https://www.stilldrinking.org/programming-sucks
+
+/// Installing Typescript alongside react

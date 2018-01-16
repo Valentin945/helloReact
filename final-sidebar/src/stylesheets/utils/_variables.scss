@@ -1,0 +1,33 @@
+$tablet-width: "(max-width: 1023px)";
+$desktop-width: "(min-width: 1024px)";
+
+
+$tm-Color: (
+    'hover' : blue,
+    'background':  white,    
+    'logo': white,
+    'border': grey,
+    'icon': black,
+);
+
+$tm-height: 50px;
+
+$sb-size: (
+    'width': 60px,
+    'open': 230px,
+);
+
+$sb-sidebar-list-Color: (
+    'hover': #FFCB60,
+    'background': #0078D7,    
+    'subcolor': white, 
+    'subactive': lightsteelblue,
+    'aside': lightgrey,
+    'border': blue,
+    
+);
+
+$sb-sidebar-icon-color: (
+  'firstIcon': white,
+  'secondIcon':  orange,
+);

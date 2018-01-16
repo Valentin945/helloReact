@@ -6,7 +6,7 @@ class progressBar10 extends React.Component
     render()
     {
         return(
-            <div class="bar">
+            <div className="bar">
             <span></span>
         </div>
         )
